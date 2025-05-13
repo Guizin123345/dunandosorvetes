@@ -350,3 +350,71 @@ a:focus {
   outline: 2px solid #e46e0c;
   outline-offset: 2px;
 }
+
+.aluguel-section {
+  background-color: #fef5ec;
+  padding: 60px 20px;
+  color: #333;
+  text-align: center;
+}
+
+.aluguel-section h2 {
+  font-size: 2em;
+  color: #e46e0c;
+  margin-bottom: 30px;
+}
+
+.aluguel-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.aluguel-img img {
+  max-width: 350px;
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.aluguel-info {
+  max-width: 500px;
+  text-align: left;
+}
+
+.aluguel-info p {
+  font-size: 1.1em;
+  margin-bottom: 15px;
+  line-height: 1.6;
+}
+
+.btn-aluguel {
+  display: inline-block;
+  background-color: #e46e0c;
+  color: white;
+  padding: 12px 25px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  margin-top: 10px;
+  transition: background-color 0.3s;
+}
+
+.btn-aluguel:hover {
+  background-color: #cc5c00;
+}
+
+@media (max-width: 768px) {
+  .aluguel-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .aluguel-info {
+    text-align: center;
+  }
+}
