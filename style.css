@@ -62,24 +62,36 @@ nav a:hover {
 }
 
 /* ============================
-   ÍCONE DO CARRINHO
+   ÍCONE DO CARRINHO FIXO
 ============================ */
 .cart-icon {
-  position: relative;
-  font-size: 1.6em;
-  cursor: pointer;
-  margin-left: auto;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: #e46e0c;
   color: white;
+  font-size: 1.6em;
+  padding: 12px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 1001;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.cart-icon:hover {
+  background-color: #cc5c00;
+  transform: scale(1.05);
 }
 
 #cart-count {
   position: absolute;
-  top: -8px;
-  right: -10px;
+  top: -5px;
+  right: -5px;
   background-color: red;
   color: white;
   font-size: 0.75em;
-  padding: 2px 6px;
+  padding: 3px 6px;
   border-radius: 50%;
   font-weight: bold;
 }
@@ -163,20 +175,21 @@ main {
 }
 
 /* ============================
-   CARRINHO LATERAL
+   CARRINHO LATERAL VISÍVEL
 ============================ */
 #cart {
   position: fixed;
   right: 0;
-  top: 70px;
+  top: 0;
+  height: 100vh;
   width: 320px;
   max-width: 100%;
   background: #fff;
   border-left: 4px solid #e46e0c;
   padding: 20px;
-  display: none;
-  box-shadow: -4px 0 10px rgba(0, 0, 0, 0.1);
-  z-index: 999;
+  box-shadow: -4px 0 12px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  overflow-y: auto;
 }
 
 #cart h2 {
@@ -221,77 +234,6 @@ main {
 
 .close-cart:hover {
   color: #cc5c00;
-}
-
-/* ============================
-   CONTATO
-============================ */
-#contato {
-  text-align: center;
-  margin-top: 50px;
-  background: #fff3e0;
-  padding: 30px 20px;
-  color: #333;
-  border-top: 1px solid #f0d8c3;
-}
-
-/* ============================
-   ACESSIBILIDADE
-============================ */
-button:focus,
-a:focus {
-  outline: 2px solid #e46e0c;
-  outline-offset: 2px;
-}
-
-/* ============================
-   RESPONSIVO
-============================ */
-@media (max-width: 768px) {
-  header {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  nav {
-    justify-content: center;
-    margin-top: 10px;
-  }
-
-  .cart-icon {
-    align-self: flex-end;
-    margin-top: 10px;
-  }
-
-  .product-list {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  #cart {
-    width: 100%;
-    left: 0;
-    right: 0;
-    top: auto;
-    bottom: 0;
-    border-left: none;
-    border-top: 4px solid #e46e0c;
-    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
-  }
-
-  .logo img {
-    height: 50px;
-  }
-}
-
-@media (max-width: 480px) {
-  .logo img {
-    height: 45px;
-  }
-
-  .product {
-    width: 90%;
-  }
 }
 
 /* ============================
@@ -373,5 +315,38 @@ a:focus {
   .promo-icon {
     margin-bottom: 10px;
   }
+
+  #cart {
+    width: 100%;
+    top: auto;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: auto;
+    max-height: 60vh;
+    border-left: none;
+    border-top: 4px solid #e46e0c;
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+  }
 }
 
+/* ============================
+   CONTATO
+============================ */
+#contato {
+  text-align: center;
+  margin-top: 50px;
+  background: #fff3e0;
+  padding: 30px 20px;
+  color: #333;
+  border-top: 1px solid #f0d8c3;
+}
+
+/* ============================
+   ACESSIBILIDADE
+============================ */
+button:focus,
+a:focus {
+  outline: 2px solid #e46e0c;
+  outline-offset: 2px;
+}
