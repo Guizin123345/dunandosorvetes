@@ -1,0 +1,377 @@
+/* ============================
+   RESET E BASE
+============================ */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #fdfaf7;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* ============================
+   HEADER
+============================ */
+header {
+  background-color: #e46e0c;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  flex-wrap: wrap;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: bold;
+  font-size: 1.6em;
+}
+
+.logo img {
+  height: 60px;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+nav {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+nav a {
+  text-decoration: none;
+  color: white;
+  padding: 8px 14px;
+  border-radius: 6px;
+  transition: background-color 0.3s;
+}
+
+nav a:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+/* ============================
+   ÍCONE DO CARRINHO
+============================ */
+.cart-icon {
+  position: relative;
+  font-size: 1.6em;
+  cursor: pointer;
+  margin-left: auto;
+  color: white;
+}
+
+#cart-count {
+  position: absolute;
+  top: -8px;
+  right: -10px;
+  background-color: red;
+  color: white;
+  font-size: 0.75em;
+  padding: 2px 6px;
+  border-radius: 50%;
+  font-weight: bold;
+}
+
+/* ============================
+   PRINCIPAL
+============================ */
+main {
+  padding: 30px 20px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.product-section {
+  margin-bottom: 50px;
+}
+
+.product-section h2 {
+  font-size: 1.8em;
+  color: #e46e0c;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.product-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+  justify-content: center;
+}
+
+.product {
+  background-color: #fff7f0;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  padding: 15px;
+  width: 160px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.product:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+}
+
+.product img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.product input {
+  width: 50px;
+  padding: 4px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.product button {
+  background-color: #e46e0c;
+  border: none;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.1s;
+}
+
+.product button:hover {
+  background-color: #cc5c00;
+}
+
+.product button:active {
+  transform: scale(0.97);
+}
+
+/* ============================
+   CARRINHO LATERAL
+============================ */
+#cart {
+  position: fixed;
+  right: 0;
+  top: 70px;
+  width: 320px;
+  max-width: 100%;
+  background: #fff;
+  border-left: 4px solid #e46e0c;
+  padding: 20px;
+  display: none;
+  box-shadow: -4px 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 999;
+}
+
+#cart h2 {
+  margin-bottom: 15px;
+  font-size: 1.4em;
+  color: #e46e0c;
+}
+
+#cart ul {
+  list-style: none;
+  margin-bottom: 15px;
+  padding-left: 0;
+}
+
+#cart a {
+  display: block;
+  background-color: #e46e0c;
+  color: white;
+  text-align: center;
+  padding: 12px;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: background-color 0.3s;
+}
+
+#cart a:hover {
+  background-color: #cc5c00;
+}
+
+.cart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.close-cart {
+  cursor: pointer;
+  font-size: 1.3em;
+  color: #e46e0c;
+  font-weight: bold;
+}
+
+.close-cart:hover {
+  color: #cc5c00;
+}
+
+/* ============================
+   CONTATO
+============================ */
+#contato {
+  text-align: center;
+  margin-top: 50px;
+  background: #fff3e0;
+  padding: 30px 20px;
+  color: #333;
+  border-top: 1px solid #f0d8c3;
+}
+
+/* ============================
+   ACESSIBILIDADE
+============================ */
+button:focus,
+a:focus {
+  outline: 2px solid #e46e0c;
+  outline-offset: 2px;
+}
+
+/* ============================
+   RESPONSIVO
+============================ */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  nav {
+    justify-content: center;
+    margin-top: 10px;
+  }
+
+  .cart-icon {
+    align-self: flex-end;
+    margin-top: 10px;
+  }
+
+  .product-list {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #cart {
+    width: 100%;
+    left: 0;
+    right: 0;
+    top: auto;
+    bottom: 0;
+    border-left: none;
+    border-top: 4px solid #e46e0c;
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .logo img {
+    height: 50px;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo img {
+    height: 45px;
+  }
+
+  .product {
+    width: 90%;
+  }
+}
+
+/* ============================
+   PROMOÇÕES
+============================ */
+#promocoes {
+  background-color: #fff3e0;
+  padding: 50px 20px;
+  text-align: center;
+  color: #333;
+  margin-top: 40px;
+}
+
+#promocoes .container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+#promocoes h2 {
+  font-size: 2em;
+  color: #e46e0c;
+  margin-bottom: 20px;
+}
+
+#promocoes p {
+  font-size: 1.2em;
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+.promo-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  padding: 20px;
+  margin: 15px 0;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.promo-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.promo-icon {
+  font-size: 3em;
+  color: #e46e0c;
+  margin-right: 20px;
+}
+
+.promo-info {
+  text-align: left;
+}
+
+.promo-info h3 {
+  font-size: 1.5em;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.promo-info p {
+  font-size: 1.2em;
+  color: #555;
+}
+
+.promo-info strong {
+  color: #e46e0c;
+}
+
+@media (max-width: 768px) {
+  .promo-item {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .promo-icon {
+    margin-bottom: 10px;
+  }
+}
+

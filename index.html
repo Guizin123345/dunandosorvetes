@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dunando Sorvetes</title>
+  <link rel="stylesheet" href="style.css"/>
+  <script defer src="script.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+</head>
+<body>
+  <header>
+    <div class="logo">
+  <img src="img/logodunando (1).png" alt="Dunando Sorvetes" />
+    </div>
+    <nav>
+      <a href="#picoles">Picolé</a>
+      <a href="#sorvetes">Sorvete</a>
+      <a href="#contato">Contato</a>
+    </nav>
+    <div class="cart-icon" onclick="toggleCart()">
+      🛒 <span id="cart-count">0</span>
+    </div>
+  </header>
+
+  <main>
+
+    <section id="promocoes">
+  <div class="container">
+    <h2>Promoções Imperdíveis</h2>
+    <p>Confira nossas ofertas especiais e aproveite descontos incríveis na compra do seu picolé favorito!</p>
+    
+    <div class="promo-item">
+      <div class="promo-info">
+        <h3>Unidade</h3>
+        <p><strong>R$ 2,50</strong> cada picolé</p>
+      </div>
+    </div>
+
+    <div class="promo-item">
+      <div class="promo-info">
+        <h3>Compra de 10 ou mais</h3>
+        <p><strong>R$ 1,80</strong> cada picolé</p>
+      </div>
+    </div>
+
+    <div class="promo-item">
+      <div class="promo-info">
+        <h3>Compra de 25 ou mais</h3>
+        <p><strong>R$ 1,50</strong> cada picolé</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+    <section id="picoles" class="product-section">
+      <h2>Picolés</h2>
+      <div class="product-list">
+  <div class="product" data-name="Picolé de Abacate" data-price="2.50">
+    <img src="img/picolé de morango.png" alt="Picolé de Abacate">
+    <h3>Abacate</h3>
+    <p>R$ 2,50</p>
+    <input type="number" min="1" value="1"/>
+    <button onclick="addToCart(this)">Adicionar</button>
+  </div>
+  <div class="product" data-name="Picolé de Abacaxi" data-price="2.50">
+    <img src="img/picolé de morango.png" alt="Picolé de Abacaxi">
+    <h3>Abacaxi</h3>
+    <p>R$ 2,50</p>
+    <input type="number" min="1" value="1"/>
+    <button onclick="addToCart(this)">Adicionar</button>
+  </div>
+  <div class="product" data-name="Picolé de Blue Ice" data-price="2.50">
+    <img src="img/picolé de morango.png" alt="Picolé Blue Ice">
+    <h3>Blue Ice</h3>
+    <p>R$ 2,50</p>
+    <input type="number" min="1" value="1"/>
+    <button onclick="addToCart(this)">Adicionar</button>
+  </div>
+  <div class="product" data-name="Picolé de Cajá" data-price="2.50">
+    <img src="img/picolé de morango.png" alt="Picolé de Cajá">
+    <h3>Cajá</h3>
+    <p>R$ 2,50</p>
+    <input type="number" min="1" value="1"/>
+    <button onclick="addToCart(this)">Adicionar</button>
+  </div>
+  <div class="product" data-name="Picolé de Chiclete" data-price="2.50">
+    <img src="img/picolé de morango.png" alt="Picolé de Chiclete">
+    <h3>Chiclete</h3>
+    <p>R$ 2,50</p>
+    <input type="number" min="1" value="1"/>
+    <button onclick="addToCart(this)">Adicionar</button>
+  </div>
+  <div class="product" data-name="Picolé de Chocolate" data-price="2.50">
+    <img src="img/picolé de morango.png" alt="Picolé de Chocolate">
+    <h3>Chocolate</h3>
+    <p>R$ 2,50</p>
+    <input type="number" min="1" value="1"/>
+    <button onclick="addToCart(this)">Adicionar</button>
+  </div>
+  <div class="product" data-name="Picolé de Coco" data-price="2.50">
+    <img src="img/picolé de morango.png" alt="Picolé de Coco">
+    <h3>Coco</h3>
+    <p>R$ 2,50</p>
+    <input type="number" min="1" value="1"/>
+    <button onclick="addToCart(this)">Adicionar</button>
+  </div>
+  <div class="product" data-name="Picolé de Coco com Abóbora" data-price="2.50">
+    <img src="img/picolé de morango.png" alt="Picolé de Coco com Abóbora">
+    <h3>Coco com Abóbora</h3>
+    <p>R$ 2,50</p>
+    <input type="number" min="1" value="1"/>
+    <button onclick="addToCart(this)">Adicionar</button>
+  </div>
+  <div class="product" data-name="Picolé de Coco Queimado" data-price="2.50">
+    <img src="img/picolé de morango.png" alt="Picolé de Coco Queimado">
+    <h3>Coco Queimado</h3>
+    <p>R$ 2,50</p>
+    <input type="number" min="1" value="1"/>
+    <button onclick="addToCart(this)">Adicionar</button>
+  </div>
+  <div class="product" data-name="Picolé de Goiaba" data-price="2.50">
+    <img src="img/picolé de morango.png" alt="Picolé de Goiaba">
+    <h3>Goiaba</h3>
+    <p>R$ 2,50</p>
+    <input type="number" min="1" value="1"/>
+    <button onclick="addToCart(this)">Adicionar</button>
+  </div>
+  <div class="product" data-name="Picolé de Leite Condensado" data-price="2.50">
+    <img src="img/picolé de morango.png" alt="Picolé de Leite Condensado">
+    <h3>Leite Condensado</h3>
+    <p>R$ 2,50</p>
+    <input type="number" min="1" value="1"/>
+    <button onclick="addToCart(this)">Adicionar</button>
+  </div>
+  <div class="product" data-name="Picolé de Limão" data-price="2.50">
+    <img src="img/picolé de morango.png" alt="Picolé de Limão">
+    <h3>Limão</h3>
+    <p>R$ 2,50</p>
+    <input type="number" min="1" value="1"/>
+    <button onclick="addToCart(this)">Adicionar</button>
+  </div>
+  <div class="product" data-name="Picolé de Maçã Verde" data-price="2.50">
+    <img src="img/picolé de morango.png" alt="Picolé de Maçã Verde">
+    <h3>Maçã Verde</h3>
+    <p>R$ 2,50</p>
+    <input type="number" min="1" value="1"/>
+    <button onclick="addToCart(this)">Adicionar</button>
+  </div>
+  <div class="product" data-name="Picolé de Maracujá" data-price="2.50">
+    <img src="img/picolé de morango.png" alt="Picolé de Maracujá">
+    <h3>Maracujá</h3>
+    <p>R$ 2,50</p>
+    <input type="number" min="1" value="1"/>
+    <button onclick="addToCart(this)">Adicionar</button>
+  </div>
+  <div class="product" data-name="Picolé de Morango" data-price="2.50">
+    <img src="img/picolé de morango.png" alt="Picolé de Morango">
+    <h3>Morango</h3>
+    <p>R$ 2,50</p>
+    <input type="number" min="1" value="1"/>
+    <button onclick="addToCart(this)">Adicionar</button>
+  </div>
+  <div class="product" data-name="Picolé de Ninho" data-price="2.50">
+    <img src="img/picolé de morango.png" alt="Picolé de Ninho">
+    <h3>Ninho</h3>
+    <p>R$ 2,50</p>
+    <input type="number" min="1" value="1"/>
+    <button onclick="addToCart(this)">Adicionar</button>
+  </div>
+  <div class="product" data-name="Picolé de Uva" data-price="2.50">
+    <img src="img/picolé de morango.png" alt="Picolé de Uva">
+    <h3>Uva</h3>
+    <p>R$ 2,50</p>
+    <input type="number" min="1" value="1"/>
+    <button onclick="addToCart(this)">Adicionar</button>
+  </div>
+</div>
+    </section>
+
+    <section id="sorvetes" class="product-section">
+  <h2>Sorvetes</h2>
+  <div class="coming-soon">
+    <p style="font-size: 18px; color: #555; text-align: center; padding: 20px;">
+      🚧 Em breve novidades refrescantes! Nossa linha de sorvetes está chegando! 🍨
+    </p>
+  </div>
+</section>
+
+    <section id="contato">
+      <h2>Contato</h2>
+      <p>Entre em contato conosco pelo WhatsApp: (27) 99918-3240</p>
+    </section>
+  </main>
+
+  <aside id="cart">
+  <div class="cart-header">
+    <h2>Carrinho</h2>
+    <span class="close-cart" onclick="toggleCart()">✖</span>
+  </div>
+
+  <ul id="cart-items"></ul>
+
+  <!-- Botão para esvaziar o carrinho -->
+  <button onclick="clearCart()" style="margin: 10px 0; background: #ff6600; color: white; border: none; padding: 8px 12px; border-radius: 5px; cursor: pointer;">
+    Esvaziar Carrinho
+  </button>
+
+  <p id="total">Total: R$ 0,00</p>
+  <a id="whatsapp-button" href="#" target="_blank">Finalizar Pedido no WhatsApp</a>
+</aside>
+
+<footer style="text-align: center; padding: 20px; background: #f8f8f8;">
+  <p>&copy; 2025 Dunando Sorvetes. Todos os direitos reservados.</p>
+</footer>
+
+
+</body>
+</html>
