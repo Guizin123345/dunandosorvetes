@@ -30,20 +30,23 @@ function updateCart() {
   const cartItems = document.getElementById("cart-items");
   const cartCount = document.getElementById("cart-count");
   const totalDisplay = document.getElementById("total");
+  const totalPicolesDiv = document.getElementById("total-picoles");
 
   cartItems.innerHTML = "";
   let total = 0;
 
-  let totalPicolés = cart
+  // Conta total de picolés
+  const totalPicoles = cart
     .filter(item => item.name.toLowerCase().includes("picolé"))
     .reduce((sum, item) => sum + item.quantity, 0);
 
   cart.forEach((item, index) => {
     let itemPrice = item.price;
 
+    // Aplica desconto dinâmico em picolés
     if (item.name.toLowerCase().includes("picolé")) {
-      if (totalPicolés >= 25) itemPrice = 1.50;
-      else if (totalPicolés >= 10) itemPrice = 1.80;
+      if (totalPicoles >= 25) itemPrice = 1.50;
+      else if (totalPicoles >= 10) itemPrice = 1.80;
       else itemPrice = 2.50;
     }
 
@@ -53,13 +56,20 @@ function updateCart() {
     const li = document.createElement("li");
     li.innerHTML = `
       ${item.quantity}x - ${item.name}
-      <button onclick="removeFromCart(${index})" style="margin-left: 10px; background: red; color: white; border: none; border-radius: 3px; padding: 2px 6px; cursor: pointer;">X</button>
+      <button onclick="removeFromCart(${index})"
+        style="margin-left: 10px; background: red; color: white; border: none;
+        border-radius: 3px; padding: 2px 6px; cursor: pointer;">X</button>
     `;
     cartItems.appendChild(li);
   });
 
-  cartCount.textContent = cart.reduce((sum, item) => sum + item.quantity, 0);
+  const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+
+  cartCount.textContent = totalItems;
   totalDisplay.textContent = `Total: R$ ${total.toFixed(2)}`;
+  if (totalPicolesDiv) {
+    totalPicolesDiv.textContent = `Total de picolés: ${totalPicoles}`;
+  }
 }
 
 function toggleCart() {
@@ -77,20 +87,16 @@ function fecharPopup() {
   popup.style.display = "none";
 }
 
-// Verifica se está dentro do horário de funcionamento
 function estaDentroDoHorario() {
   const agora = new Date();
   const dia = agora.getDay(); // 0 = domingo, 1 = segunda, ..., 6 = sábado
   const hora = agora.getHours();
   const minutos = agora.getMinutes();
-
   const horaAtual = hora + minutos / 60;
 
   if (dia >= 1 && dia <= 5) {
-    // Segunda a sexta - das 16:30 às 20:00
     return horaAtual >= 16.5 && horaAtual <= 20;
   } else {
-    // Sábado e Domingo - das 09:00 às 20:00
     return horaAtual >= 9 && horaAtual <= 20;
   }
 }
@@ -114,7 +120,7 @@ function enviarPedidoWhatsApp() {
   let message = "Olá eu gostaria de fazer um pedido:%0A%0A";
   let total = 0;
 
-  let totalPicolés = cart
+  const totalPicoles = cart
     .filter(item => item.name.toLowerCase().includes("picolé"))
     .reduce((sum, item) => sum + item.quantity, 0);
 
@@ -122,8 +128,8 @@ function enviarPedidoWhatsApp() {
     let itemPrice = item.price;
 
     if (item.name.toLowerCase().includes("picolé")) {
-      if (totalPicolés >= 25) itemPrice = 1.50;
-      else if (totalPicolés >= 10) itemPrice = 1.80;
+      if (totalPicoles >= 25) itemPrice = 1.50;
+      else if (totalPicoles >= 10) itemPrice = 1.80;
       else itemPrice = 2.50;
     }
 
@@ -138,6 +144,5 @@ function enviarPedidoWhatsApp() {
 
   const url = `https://wa.me/5527999183240?text=${message}`;
   window.open(url, '_blank');
-
   fecharPopup();
 }
