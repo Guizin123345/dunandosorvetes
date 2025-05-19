@@ -68,7 +68,6 @@ function updateCart() {
     totalPicolesDiv.textContent = `Total de picolés: ${totalPicoles}`;
   }
 
-  // ✅ Chamada movida para cá para atualizar opções de entrega sempre que o carrinho muda
   atualizarEntrega(totalPicoles);
 }
 
@@ -79,10 +78,6 @@ function toggleCart() {
 
 function abrirPopup() {
   const popup = document.getElementById("dados-popup");
-
-  // ❌ Esta linha foi removida daqui
-  // atualizarEntrega(totalPicoles);
-
   popup.style.display = "flex";
 }
 
@@ -127,40 +122,55 @@ function enviarPedidoWhatsApp() {
     return;
   }
 
-  let message = "Olá eu gostaria de fazer um pedido:%0A%0A";
-  let total = 0;
-
   const totalPicoles = cart
     .filter(item => item.name.toLowerCase().includes("picolé"))
     .reduce((sum, item) => sum + item.quantity, 0);
 
+  let total = 0;
+  let notaFiscal = `*DUNANDO SORVETES - NOTA FISCAL*\n`;
+  notaFiscal += `----------------------------------\n`;
+  notaFiscal += `*Itens do Pedido:*\n`;
+
   cart.forEach(item => {
-    let itemPrice = item.price;
+    let precoFinal = item.price;
 
     if (item.name.toLowerCase().includes("picolé")) {
-      if (totalPicoles >= 25) itemPrice = 1.50;
-      else if (totalPicoles >= 10) itemPrice = 1.80;
-      else itemPrice = 2.50;
+      if (totalPicoles >= 25) precoFinal = 1.50;
+      else if (totalPicoles >= 10) precoFinal = 1.80;
+      else precoFinal = 2.50;
     }
 
-    total += itemPrice * item.quantity;
-    message += `${item.quantity}x - ${item.name}%0A`;
+    const valorItem = item.quantity * precoFinal;
+    total += valorItem;
+
+    notaFiscal += `• ${item.quantity}x ${item.name}\n`;
+    notaFiscal += `  R$ ${precoFinal.toFixed(2)} x ${item.quantity} = *R$ ${valorItem.toFixed(2)}*\n`;
   });
 
-  message += `%0A------------------%0A`;
-  message += `Nome: ${nome}%0A`;
-  message += `Forma de Entrega: ${entrega === "retirada" ? "Retirada na loja" : entrega === "regiao5" ? "Entrega para região 5" : "Entrega para demais regiões"}%0A`;
+  notaFiscal += `----------------------------------\n`;
+  notaFiscal += `*Total de Picolés:* ${totalPicoles}\n`;
+  notaFiscal += `*Valor Total:* *R$ ${total.toFixed(2)}*\n`;
+  notaFiscal += `----------------------------------\n`;
+  notaFiscal += `*Cliente:* ${nome}\n`;
+  notaFiscal += `*Entrega:* ${entrega === "retirada" ? "Retirada na loja" : entrega === "regiao5" ? "Região 5" : "Demais regiões"}\n`;
 
   if (entrega !== "retirada") {
-    message += `Endereço: ${rua}, Nº ${numero}, Bairro ${bairro}%0A`;
+    notaFiscal += `*Endereço:* ${rua}, Nº ${numero}, Bairro ${bairro}\n`;
   }
 
-  message += `%0ATotal: R$ ${total.toFixed(2)}`;
+  const agora = new Date();
+  notaFiscal += `----------------------------------\n`;
+  notaFiscal += `*Data:* ${agora.toLocaleDateString()}\n`;
+  notaFiscal += `*Hora:* ${agora.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}\n`;
+  notaFiscal += `----------------------------------\n`;
+  notaFiscal += `Pedido gerado via site dunandosorvetes.com.br`;
 
-  const url = `https://wa.me/5527999183240?text=${message}`;
+  const url = `https://wa.me/5527999183240?text=${encodeURIComponent(notaFiscal)}`;
   window.open(url, '_blank');
   fecharPopup();
 }
+
+
 
 function atualizarEntrega(totalPicoles) {
   const entregaSelect = document.getElementById("cliente-entrega");
@@ -174,7 +184,7 @@ function atualizarEntrega(totalPicoles) {
   } else {
     entregaSelect.innerHTML += '<option value="retirada">Retirada na loja</option>';
     entregaSelect.innerHTML += '<option value="regiao5">Entrega para região 5</option>';
-    entregaSelect.innerHTML += '<option value="outras">Entrega para demais regiões</option>';
+    entregaSelect.innerHTML += '<option value="outras">Entrega para demais regiões de Vila Velha</option>';
   }
 
   entregaSelect.onchange = function () {
