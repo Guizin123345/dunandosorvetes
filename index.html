@@ -31,6 +31,18 @@
   <span id="status-loja" style="font-weight: bold; margin-top: 5px; display: block;"></span>
     </div>
 
+    <div id="info-entregas" style="margin-top: 20px; padding: 10px; background: #f8f8f8; border: 1px solid #ccc; border-radius: 8px;">
+  <strong>Informações sobre Entrega:</strong><br>
+  <ul style="margin: 10px 0 0 20px; padding: 0;">
+    <li><strong>Região 5:</strong> Entregamos a partir de <span style="color: green;">25 picolés</span>.</li>
+    <li><strong>Demais regiões de Vila Velha:</strong> Entregamos a partir de <span style="color: green;">40 picolés</span>.</li>
+    <li><strong>Pedidos com até 24 picolés:</strong> Somente <span style="color: red;">retirada na loja</span>.</li>
+  </ul>
+  <p style="margin-top: 10px;"><strong>Endereço para retirada:</strong><br>
+  Avenida Jamaica, nº 03 - Jabaeté</p>
+</div>
+
+
     <section id="promocoes">
       <div class="container">
         <h2>Promoções Imperdíveis</h2>
@@ -60,129 +72,215 @@
     </section>
 
     <section id="picoles" class="product-section">
-      <h2>Picolés</h2>
-      <div class="product-list">
-  <div class="product" data-name="Picolé de Abacate" data-price="2.50">
-    <img src="img/picolé de morango.png" alt="Picolé de Abacate">
-    <h3>Abacate</h3>
-    <p>R$ 2,50</p>
-    <input type="number" min="1" value="1"/>
-    <button onclick="addToCart(this)">Adicionar</button>
+  <h2>Picolés</h2>
+  <div class="product-list">
+
+    <div class="product" data-name="Picolé de Abacate" data-price="2.50">
+      <img src="img/picolé de morango.png" alt="Picolé de Abacate" />
+      <h3>Abacate</h3>
+      <p>R$ 2,50</p>
+      <div class="quantity-control">
+        <button type="button" class="qty-btn minus">-</button>
+        <input type="number" min="1" value="1" />
+        <button type="button" class="qty-btn plus">+</button>
+      </div>
+      <button onclick="addToCart(this)">Adicionar</button>
+    </div>
+
+    <div class="product" data-name="Picolé de Abacaxi" data-price="2.50">
+      <img src="img/picolé de morango.png" alt="Picolé de Abacaxi" />
+      <h3>Abacaxi</h3>
+      <p>R$ 2,50</p>
+      <div class="quantity-control">
+        <button type="button" class="qty-btn minus">-</button>
+        <input type="number" min="1" value="1" />
+        <button type="button" class="qty-btn plus">+</button>
+      </div>
+      <button onclick="addToCart(this)">Adicionar</button>
+    </div>
+
+    <div class="product" data-name="Picolé de Blue Ice" data-price="2.50">
+      <img src="img/picolé de morango.png" alt="Picolé Blue Ice" />
+      <h3>Blue Ice</h3>
+      <p>R$ 2,50</p>
+      <div class="quantity-control">
+        <button type="button" class="qty-btn minus">-</button>
+        <input type="number" min="1" value="1" />
+        <button type="button" class="qty-btn plus">+</button>
+      </div>
+      <button onclick="addToCart(this)">Adicionar</button>
+    </div>
+
+    <div class="product" data-name="Picolé de Cajá" data-price="2.50">
+      <img src="img/picolé de morango.png" alt="Picolé de Cajá" />
+      <h3>Cajá</h3>
+      <p>R$ 2,50</p>
+      <div class="quantity-control">
+        <button type="button" class="qty-btn minus">-</button>
+        <input type="number" min="1" value="1" />
+        <button type="button" class="qty-btn plus">+</button>
+      </div>
+      <button onclick="addToCart(this)">Adicionar</button>
+    </div>
+
+    <div class="product" data-name="Picolé de Chiclete" data-price="2.50">
+      <img src="img/picolé de morango.png" alt="Picolé de Chiclete" />
+      <h3>Chiclete</h3>
+      <p>R$ 2,50</p>
+      <div class="quantity-control">
+        <button type="button" class="qty-btn minus">-</button>
+        <input type="number" min="1" value="1" />
+        <button type="button" class="qty-btn plus">+</button>
+      </div>
+      <button onclick="addToCart(this)">Adicionar</button>
+    </div>
+
+    <div class="product" data-name="Picolé de Chocolate" data-price="2.50">
+      <img src="img/picolé de morango.png" alt="Picolé de Chocolate" />
+      <h3>Chocolate</h3>
+      <p>R$ 2,50</p>
+      <div class="quantity-control">
+        <button type="button" class="qty-btn minus">-</button>
+        <input type="number" min="1" value="1" />
+        <button type="button" class="qty-btn plus">+</button>
+      </div>
+      <button onclick="addToCart(this)">Adicionar</button>
+    </div>
+
+    <div class="product" data-name="Picolé de Coco" data-price="2.50">
+      <img src="img/picolé de morango.png" alt="Picolé de Coco" />
+      <h3>Coco</h3>
+      <p>R$ 2,50</p>
+      <div class="quantity-control">
+        <button type="button" class="qty-btn minus">-</button>
+        <input type="number" min="1" value="1" />
+        <button type="button" class="qty-btn plus">+</button>
+      </div>
+      <button onclick="addToCart(this)">Adicionar</button>
+    </div>
+
+    <div class="product" data-name="Picolé de Coco com Abóbora" data-price="2.50">
+      <img src="img/picolé de morango.png" alt="Picolé de Coco com Abóbora" />
+      <h3>Coco com Abóbora</h3>
+      <p>R$ 2,50</p>
+      <div class="quantity-control">
+        <button type="button" class="qty-btn minus">-</button>
+        <input type="number" min="1" value="1" />
+        <button type="button" class="qty-btn plus">+</button>
+      </div>
+      <button onclick="addToCart(this)">Adicionar</button>
+    </div>
+
+    <div class="product" data-name="Picolé de Coco Queimado" data-price="2.50">
+      <img src="img/picolé de morango.png" alt="Picolé de Coco Queimado" />
+      <h3>Coco Queimado</h3>
+      <p>R$ 2,50</p>
+      <div class="quantity-control">
+        <button type="button" class="qty-btn minus">-</button>
+        <input type="number" min="1" value="1" />
+        <button type="button" class="qty-btn plus">+</button>
+      </div>
+      <button onclick="addToCart(this)">Adicionar</button>
+    </div>
+
+    <div class="product" data-name="Picolé de Goiaba" data-price="2.50">
+      <img src="img/picolé de morango.png" alt="Picolé de Goiaba" />
+      <h3>Goiaba</h3>
+      <p>R$ 2,50</p>
+      <div class="quantity-control">
+        <button type="button" class="qty-btn minus">-</button>
+        <input type="number" min="1" value="1" />
+        <button type="button" class="qty-btn plus">+</button>
+      </div>
+      <button onclick="addToCart(this)">Adicionar</button>
+    </div>
+
+    <div class="product" data-name="Picolé de Leite Condensado" data-price="2.50">
+      <img src="img/picolé de morango.png" alt="Picolé de Leite Condensado" />
+      <h3>Leite Condensado</h3>
+      <p>R$ 2,50</p>
+      <div class="quantity-control">
+        <button type="button" class="qty-btn minus">-</button>
+        <input type="number" min="1" value="1" />
+        <button type="button" class="qty-btn plus">+</button>
+      </div>
+      <button onclick="addToCart(this)">Adicionar</button>
+    </div>
+
+    <div class="product" data-name="Picolé de Limão" data-price="2.50">
+      <img src="img/picolé de morango.png" alt="Picolé de Limão" />
+      <h3>Limão</h3>
+      <p>R$ 2,50</p>
+      <div class="quantity-control">
+        <button type="button" class="qty-btn minus">-</button>
+        <input type="number" min="1" value="1" />
+        <button type="button" class="qty-btn plus">+</button>
+      </div>
+      <button onclick="addToCart(this)">Adicionar</button>
+    </div>
+
+    <div class="product" data-name="Picolé de Maçã Verde" data-price="2.50">
+      <img src="img/picolé de morango.png" alt="Picolé de Maçã Verde" />
+      <h3>Maçã Verde</h3>
+      <p>R$ 2,50</p>
+      <div class="quantity-control">
+        <button type="button" class="qty-btn minus">-</button>
+        <input type="number" min="1" value="1" />
+        <button type="button" class="qty-btn plus">+</button>
+      </div>
+      <button onclick="addToCart(this)">Adicionar</button>
+    </div>
+
+    <div class="product" data-name="Picolé de Maracujá" data-price="2.50">
+      <img src="img/picolé de morango.png" alt="Picolé de Maracujá" />
+      <h3>Maracujá</h3>
+      <p>R$ 2,50</p>
+      <div class="quantity-control">
+        <button type="button" class="qty-btn minus">-</button>
+        <input type="number" min="1" value="1" />
+        <button type="button" class="qty-btn plus">+</button>
+      </div>
+      <button onclick="addToCart(this)">Adicionar</button>
+    </div>
+
+    <div class="product" data-name="Picolé de Morango" data-price="2.50">
+      <img src="img/picolé de morango.png" alt="Picolé de Morango" />
+      <h3>Morango</h3>
+      <p>R$ 2,50</p>
+      <div class="quantity-control">
+        <button type="button" class="qty-btn minus">-</button>
+        <input type="number" min="1" value="1" />
+        <button type="button" class="qty-btn plus">+</button>
+      </div>
+      <button onclick="addToCart(this)">Adicionar</button>
+    </div>
+
+    <div class="product" data-name="Picolé de Ninho" data-price="2.50">
+      <img src="img/picolé de morango.png" alt="Picolé de Ninho" />
+      <h3>Ninho</h3>
+      <p>R$ 2,50</p>
+      <div class="quantity-control">
+        <button type="button" class="qty-btn minus">-</button>
+        <input type="number" min="1" value="1" />
+        <button type="button" class="qty-btn plus">+</button>
+      </div>
+      <button onclick="addToCart(this)">Adicionar</button>
+    </div>
+
+    <div class="product" data-name="Picolé de Uva" data-price="2.50">
+      <img src="img/picolé de morango.png" alt="Picolé de Uva" />
+      <h3>Uva</h3>
+      <p>R$ 2,50</p>
+      <div class="quantity-control">
+        <button type="button" class="qty-btn minus">-</button>
+        <input type="number" min="1" value="1" />
+        <button type="button" class="qty-btn plus">+</button>
+      </div>
+      <button onclick="addToCart(this)">Adicionar</button>
+    </div>
+
   </div>
-  <div class="product" data-name="Picolé de Abacaxi" data-price="2.50">
-    <img src="img/picolé de morango.png" alt="Picolé de Abacaxi">
-    <h3>Abacaxi</h3>
-    <p>R$ 2,50</p>
-    <input type="number" min="1" value="1"/>
-    <button onclick="addToCart(this)">Adicionar</button>
-  </div>
-  <div class="product" data-name="Picolé de Blue Ice" data-price="2.50">
-    <img src="img/picolé de morango.png" alt="Picolé Blue Ice">
-    <h3>Blue Ice</h3>
-    <p>R$ 2,50</p>
-    <input type="number" min="1" value="1"/>
-    <button onclick="addToCart(this)">Adicionar</button>
-  </div>
-  <div class="product" data-name="Picolé de Cajá" data-price="2.50">
-    <img src="img/picolé de morango.png" alt="Picolé de Cajá">
-    <h3>Cajá</h3>
-    <p>R$ 2,50</p>
-    <input type="number" min="1" value="1"/>
-    <button onclick="addToCart(this)">Adicionar</button>
-  </div>
-  <div class="product" data-name="Picolé de Chiclete" data-price="2.50">
-    <img src="img/picolé de morango.png" alt="Picolé de Chiclete">
-    <h3>Chiclete</h3>
-    <p>R$ 2,50</p>
-    <input type="number" min="1" value="1"/>
-    <button onclick="addToCart(this)">Adicionar</button>
-  </div>
-  <div class="product" data-name="Picolé de Chocolate" data-price="2.50">
-    <img src="img/picolé de morango.png" alt="Picolé de Chocolate">
-    <h3>Chocolate</h3>
-    <p>R$ 2,50</p>
-    <input type="number" min="1" value="1"/>
-    <button onclick="addToCart(this)">Adicionar</button>
-  </div>
-  <div class="product" data-name="Picolé de Coco" data-price="2.50">
-    <img src="img/picolé de morango.png" alt="Picolé de Coco">
-    <h3>Coco</h3>
-    <p>R$ 2,50</p>
-    <input type="number" min="1" value="1"/>
-    <button onclick="addToCart(this)">Adicionar</button>
-  </div>
-  <div class="product" data-name="Picolé de Coco com Abóbora" data-price="2.50">
-    <img src="img/picolé de morango.png" alt="Picolé de Coco com Abóbora">
-    <h3>Coco com Abóbora</h3>
-    <p>R$ 2,50</p>
-    <input type="number" min="1" value="1"/>
-    <button onclick="addToCart(this)">Adicionar</button>
-  </div>
-  <div class="product" data-name="Picolé de Coco Queimado" data-price="2.50">
-    <img src="img/picolé de morango.png" alt="Picolé de Coco Queimado">
-    <h3>Coco Queimado</h3>
-    <p>R$ 2,50</p>
-    <input type="number" min="1" value="1"/>
-    <button onclick="addToCart(this)">Adicionar</button>
-  </div>
-  <div class="product" data-name="Picolé de Goiaba" data-price="2.50">
-    <img src="img/picolé de morango.png" alt="Picolé de Goiaba">
-    <h3>Goiaba</h3>
-    <p>R$ 2,50</p>
-    <input type="number" min="1" value="1"/>
-    <button onclick="addToCart(this)">Adicionar</button>
-  </div>
-  <div class="product" data-name="Picolé de Leite Condensado" data-price="2.50">
-    <img src="img/picolé de morango.png" alt="Picolé de Leite Condensado">
-    <h3>Leite Condensado</h3>
-    <p>R$ 2,50</p>
-    <input type="number" min="1" value="1"/>
-    <button onclick="addToCart(this)">Adicionar</button>
-  </div>
-  <div class="product" data-name="Picolé de Limão" data-price="2.50">
-    <img src="img/picolé de morango.png" alt="Picolé de Limão">
-    <h3>Limão</h3>
-    <p>R$ 2,50</p>
-    <input type="number" min="1" value="1"/>
-    <button onclick="addToCart(this)">Adicionar</button>
-  </div>
-  <div class="product" data-name="Picolé de Maçã Verde" data-price="2.50">
-    <img src="img/picolé de morango.png" alt="Picolé de Maçã Verde">
-    <h3>Maçã Verde</h3>
-    <p>R$ 2,50</p>
-    <input type="number" min="1" value="1"/>
-    <button onclick="addToCart(this)">Adicionar</button>
-  </div>
-  <div class="product" data-name="Picolé de Maracujá" data-price="2.50">
-    <img src="img/picolé de morango.png" alt="Picolé de Maracujá">
-    <h3>Maracujá</h3>
-    <p>R$ 2,50</p>
-    <input type="number" min="1" value="1"/>
-    <button onclick="addToCart(this)">Adicionar</button>
-  </div>
-  <div class="product" data-name="Picolé de Morango" data-price="2.50">
-    <img src="img/picolé de morango.png" alt="Picolé de Morango">
-    <h3>Morango</h3>
-    <p>R$ 2,50</p>
-    <input type="number" min="1" value="1"/>
-    <button onclick="addToCart(this)">Adicionar</button>
-  </div>
-  <div class="product" data-name="Picolé de Ninho" data-price="2.50">
-    <img src="img/picolé de morango.png" alt="Picolé de Ninho">
-    <h3>Ninho</h3>
-    <p>R$ 2,50</p>
-    <input type="number" min="1" value="1"/>
-    <button onclick="addToCart(this)">Adicionar</button>
-  </div>
-  <div class="product" data-name="Picolé de Uva" data-price="2.50">
-    <img src="img/picolé de morango.png" alt="Picolé de Uva">
-    <h3>Uva</h3>
-    <p>R$ 2,50</p>
-    <input type="number" min="1" value="1"/>
-    <button onclick="addToCart(this)">Adicionar</button>
-  </div>
-</div>
-    </section>
+</section>
 
     <section id="aluguel" class="aluguel-section">
       <div class="container">
@@ -253,19 +351,29 @@
   <div id="dados-popup" class="popup-overlay">
   <div class="popup-content">
     <h3>Informe seus dados para o pedido</h3>
-    
+
     <form id="form-dados-cliente" onsubmit="event.preventDefault(); enviarPedidoWhatsApp();">
       <label for="cliente-nome">Nome:</label>
       <input type="text" id="cliente-nome" name="cliente-nome" required>
 
+      <label for="cliente-entrega">Forma de Entrega:</label>
+      <select id="cliente-entrega" name="cliente-entrega" required onchange="atualizarCamposEndereco()" style="padding: 8px; border-radius: 6px; border: 1px solid #ccc; background: #fff; font-size: 14px; margin-bottom: 10px;">
+        <option value="">Selecione...</option>
+        <!-- As opções serão preenchidas dinamicamente via JavaScript -->
+      </select>
+
+      <div id="endereco-retirada" style="display: none; margin-bottom: 10px; font-size: 14px; color: #333;">
+        Endereço para retirada: <strong>Avenida Jamaica, nº 03 - Jabaeté</strong>
+      </div>
+
       <label for="cliente-rua">Rua:</label>
-      <input type="text" id="cliente-rua" name="cliente-rua" required>
+      <input type="text" id="cliente-rua" name="cliente-rua" disabled>
 
       <label for="cliente-numero">Número:</label>
-      <input type="text" id="cliente-numero" name="cliente-numero" required>
+      <input type="text" id="cliente-numero" name="cliente-numero" disabled>
 
       <label for="cliente-bairro">Bairro:</label>
-      <input type="text" id="cliente-bairro" name="cliente-bairro" required>
+      <input type="text" id="cliente-bairro" name="cliente-bairro" disabled>
 
       <div class="popup-buttons">
         <button type="submit">Enviar Pedido</button>
@@ -278,6 +386,26 @@
   <footer style="text-align: center; padding: 20px; background: #f8f8f8;">
     <p>&copy; 2025 Dunando Sorvetes. Todos os direitos reservados.</p>
   </footer>
+
+<script>
+  function changeQuantity(button, delta) {
+    const container = button.parentElement;
+    const input = container.querySelector('input[type=number]');
+    let currentValue = parseInt(input.value) || 1;
+    currentValue += delta;
+    if (currentValue < 1) currentValue = 1;
+    input.value = currentValue;
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.qty-btn.minus').forEach(btn => {
+      btn.addEventListener('click', () => changeQuantity(btn, -1));
+    });
+    document.querySelectorAll('.qty-btn.plus').forEach(btn => {
+      btn.addEventListener('click', () => changeQuantity(btn, +1));
+    });
+  });
+</script>
 
 </body>
 </html>

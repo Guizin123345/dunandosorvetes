@@ -35,7 +35,6 @@ function updateCart() {
   cartItems.innerHTML = "";
   let total = 0;
 
-  // Conta total de picolés
   const totalPicoles = cart
     .filter(item => item.name.toLowerCase().includes("picolé"))
     .reduce((sum, item) => sum + item.quantity, 0);
@@ -43,7 +42,6 @@ function updateCart() {
   cart.forEach((item, index) => {
     let itemPrice = item.price;
 
-    // Aplica desconto dinâmico em picolés
     if (item.name.toLowerCase().includes("picolé")) {
       if (totalPicoles >= 25) itemPrice = 1.50;
       else if (totalPicoles >= 10) itemPrice = 1.80;
@@ -64,12 +62,14 @@ function updateCart() {
   });
 
   const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-
   cartCount.textContent = totalItems;
   totalDisplay.textContent = `Total: R$ ${total.toFixed(2)}`;
   if (totalPicolesDiv) {
     totalPicolesDiv.textContent = `Total de picolés: ${totalPicoles}`;
   }
+
+  // ✅ Chamada movida para cá para atualizar opções de entrega sempre que o carrinho muda
+  atualizarEntrega(totalPicoles);
 }
 
 function toggleCart() {
@@ -79,6 +79,10 @@ function toggleCart() {
 
 function abrirPopup() {
   const popup = document.getElementById("dados-popup");
+
+  // ❌ Esta linha foi removida daqui
+  // atualizarEntrega(totalPicoles);
+
   popup.style.display = "flex";
 }
 
@@ -89,7 +93,7 @@ function fecharPopup() {
 
 function estaDentroDoHorario() {
   const agora = new Date();
-  const dia = agora.getDay(); // 0 = domingo, 1 = segunda, ..., 6 = sábado
+  const dia = agora.getDay();
   const hora = agora.getHours();
   const minutos = agora.getMinutes();
   const horaAtual = hora + minutos / 60;
@@ -108,12 +112,18 @@ function enviarPedidoWhatsApp() {
   }
 
   const nome = document.getElementById("cliente-nome").value.trim();
+  const entrega = document.getElementById("cliente-entrega").value;
   const rua = document.getElementById("cliente-rua").value.trim();
   const numero = document.getElementById("cliente-numero").value.trim();
   const bairro = document.getElementById("cliente-bairro").value.trim();
 
-  if (!nome || !rua || !numero || !bairro) {
-    alert("Por favor, preencha todos os campos.");
+  if (!nome || entrega === "") {
+    alert("Por favor, preencha o nome e selecione a forma de entrega.");
+    return;
+  }
+
+  if (entrega !== "retirada" && (!rua || !numero || !bairro)) {
+    alert("Por favor, preencha os campos de endereço para entrega.");
     return;
   }
 
@@ -139,10 +149,61 @@ function enviarPedidoWhatsApp() {
 
   message += `%0A------------------%0A`;
   message += `Nome: ${nome}%0A`;
-  message += `Endereço: ${rua}, Nº ${numero}, Bairro ${bairro}%0A`;
+  message += `Forma de Entrega: ${entrega === "retirada" ? "Retirada na loja" : entrega === "regiao5" ? "Entrega para região 5" : "Entrega para demais regiões"}%0A`;
+
+  if (entrega !== "retirada") {
+    message += `Endereço: ${rua}, Nº ${numero}, Bairro ${bairro}%0A`;
+  }
+
   message += `%0ATotal: R$ ${total.toFixed(2)}`;
 
   const url = `https://wa.me/5527999183240?text=${message}`;
   window.open(url, '_blank');
   fecharPopup();
+}
+
+function atualizarEntrega(totalPicoles) {
+  const entregaSelect = document.getElementById("cliente-entrega");
+  entregaSelect.innerHTML = '<option value="">Selecione...</option>';
+
+  if (totalPicoles <= 24) {
+    entregaSelect.innerHTML += '<option value="retirada">Retirada na loja</option>';
+  } else if (totalPicoles <= 39) {
+    entregaSelect.innerHTML += '<option value="retirada">Retirada na loja</option>';
+    entregaSelect.innerHTML += '<option value="regiao5">Entrega para região 5</option>';
+  } else {
+    entregaSelect.innerHTML += '<option value="retirada">Retirada na loja</option>';
+    entregaSelect.innerHTML += '<option value="regiao5">Entrega para região 5</option>';
+    entregaSelect.innerHTML += '<option value="outras">Entrega para demais regiões</option>';
+  }
+
+  entregaSelect.onchange = function () {
+    const entrega = entregaSelect.value;
+    const camposEndereco = ["cliente-rua", "cliente-numero", "cliente-bairro"];
+
+    if (entrega === "retirada" || entrega === "") {
+      camposEndereco.forEach(id => {
+        const campo = document.getElementById(id);
+        campo.disabled = true;
+        campo.required = false;
+        campo.value = "";
+      });
+    } else {
+      camposEndereco.forEach(id => {
+        const campo = document.getElementById(id);
+        campo.disabled = false;
+        campo.required = true;
+      });
+    }
+  };
+
+  entregaSelect.dispatchEvent(new Event('change'));
+}
+
+function changeQuantity(button, delta) {
+  const input = button.parentElement.querySelector("input[type=number]");
+  let currentValue = parseInt(input.value) || 1;
+  currentValue += delta;
+  if (currentValue < 1) currentValue = 1;
+  input.value = currentValue;
 }
