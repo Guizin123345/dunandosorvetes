@@ -533,3 +533,35 @@ a:focus {
   font-weight: bold;
   color: #333;
 }
+
+.aluguel-info h3 {
+  margin-top: 20px;
+  color: #333;
+  font-size: 1.2rem;
+}
+
+.quantidades-minimas {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0 20px;
+}
+
+.quantidades-minimas li {
+  margin-bottom: 8px;
+  font-size: 1rem;
+}
+
+.quantidades-minimas i {
+  color: #e91e63;
+  margin-right: 8px;
+}
+
+.prazo-info {
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
+
+.prazo-info i {
+  color: #2196f3;
+  margin-right: 8px;
+}
