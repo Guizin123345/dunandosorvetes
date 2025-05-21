@@ -94,7 +94,7 @@ function estaDentroDoHorario() {
   const horaAtual = hora + minutos / 60;
 
   if (dia >= 1 && dia <= 5) {
-    return horaAtual >= 16.5 && horaAtual <= 20;
+    return horaAtual >= 15.5 && horaAtual <= 20;
   } else {
     return horaAtual >= 9 && horaAtual <= 20;
   }
@@ -108,12 +108,13 @@ function enviarPedidoWhatsApp() {
 
   const nome = document.getElementById("cliente-nome").value.trim();
   const entrega = document.getElementById("cliente-entrega").value;
+  const pagamento = document.getElementById("cliente-pagamento").value;
   const rua = document.getElementById("cliente-rua").value.trim();
   const numero = document.getElementById("cliente-numero").value.trim();
   const bairro = document.getElementById("cliente-bairro").value.trim();
 
-  if (!nome || entrega === "") {
-    alert("Por favor, preencha o nome e selecione a forma de entrega.");
+  if (!nome || entrega === "" || pagamento === "") {
+    alert("Por favor, preencha o nome, selecione a forma de entrega e a forma de pagamento.");
     return;
   }
 
@@ -157,6 +158,8 @@ function enviarPedidoWhatsApp() {
   if (entrega !== "retirada") {
     notaFiscal += `*Endereço:* ${rua}, Nº ${numero}, Bairro ${bairro}\n`;
   }
+
+  notaFiscal += `*Forma de Pagamento:* ${pagamento}\n`;
 
   const agora = new Date();
   notaFiscal += `----------------------------------\n`;
