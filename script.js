@@ -94,7 +94,7 @@ function estaDentroDoHorario() {
   const horaAtual = hora + minutos / 60;
 
   if (dia >= 1 && dia <= 5) {
-    return horaAtual >= 15.5 && horaAtual <= 20;
+    return horaAtual >= 16.5 && horaAtual <= 20;
   } else {
     return horaAtual >= 9 && horaAtual <= 20;
   }
